@@ -10,7 +10,8 @@ namespace PIMTool.Database
 
         public PimContext(DbContextOptions options) : base(options)
         {
+
         }
-        
+
     }
 }
