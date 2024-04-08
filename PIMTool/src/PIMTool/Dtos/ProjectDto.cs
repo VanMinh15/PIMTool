@@ -6,7 +6,6 @@ public class ProjectDto
     public int GroupId { get; set; }
     public int ProjectNumber { get; set; }
     public string ProjectName { get; set; } = null!;
-
     public string Customer { get; set; }
     public string Status { get; set; }
     public DateOnly StartDate { get; set; }

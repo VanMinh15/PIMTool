@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PIMTool.Database;
+namespace PIMTool.Core.Domain.Entities;
 
 public partial class Employee
 {
