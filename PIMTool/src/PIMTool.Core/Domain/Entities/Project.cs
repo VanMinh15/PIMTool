@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PIMTool.Core.Domain.Entities;
 
-public partial class Project
+public partial class Project : IEntity
 {
     public int Id { get; set; }
 
@@ -11,7 +11,7 @@ public partial class Project
 
     public int ProjectNumber { get; set; }
 
-    public char Name { get; set; }
+    public string Name { get; set; }
 
     public string Customer { get; set; } = null!;
 

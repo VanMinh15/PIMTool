@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PIMTool.Core.Domain.Entities;
 using PIMTool.Core.Interfaces.Services;
 using PIMTool.Dtos;
+using System.ComponentModel.DataAnnotations;
 
 namespace PIMTool.Controllers
 {
@@ -21,10 +22,19 @@ namespace PIMTool.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProjectDto>> Get([FromRoute][Required]int id)
+        public async Task<ActionResult<ProjectDto>> Get([FromRoute][Required] int id)
         {
             var entity = await _projectService.GetAsync(id);
             return Ok(_mapper.Map<ProjectDto>(entity));
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ProjectDto>> Post([FromBody] ProjectDto projectDto)
+        {
+            var entity = _mapper.Map<Project>(projectDto);
+            await _projectService.AddAsync(entity);
+            return CreatedAtAction(nameof(Get), new { id = entity.Id }, _mapper);
+        }
+
     }
 }

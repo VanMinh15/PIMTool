@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PIMTool.Core.Domain.Entities;
 using System;
 using System.Collections.Generic;
 

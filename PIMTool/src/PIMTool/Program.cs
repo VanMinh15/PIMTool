@@ -17,7 +17,7 @@ builder.Services.AddCors(opt =>
 });
 builder.Services.AddControllers().AddNewtonsoftJson();
 
-builder.Services.AddDbContext<PimContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PimContext")));
+builder.Services.AddDbContext<PimContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PimContext")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -29,7 +29,7 @@ builder.Services.Register();
 
 var app = builder.Build();
 
-EnsureMigrate(app);
+//EnsureMigrate(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -48,9 +48,9 @@ app.Run();
 
 
 
-void EnsureMigrate(WebApplication webApp)
-{
-    using var scope = webApp.Services.CreateScope();
-    var pimContext = scope.ServiceProvider.GetRequiredService<PimContext>();
-    pimContext.Database.Migrate();
-}
+//void EnsureMigrate(WebApplication webApp)
+//{
+//    using var scope = webApp.Services.CreateScope();
+//    var pimContext = scope.ServiceProvider.GetRequiredService<PimContext>();
+//    pimContext.Database.Migrate();
+//}

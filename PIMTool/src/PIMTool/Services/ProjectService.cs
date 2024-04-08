@@ -18,5 +18,11 @@ namespace PIMTool.Services
             var entity = await _repository.GetAsync(id, cancellationToken);
             return entity;
         }
+
+        public async Task AddAsync(Project entity, CancellationToken cancellationToken = default)
+        {
+            await _repository.AddAsync(entity, cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
+        }
     }
 }
