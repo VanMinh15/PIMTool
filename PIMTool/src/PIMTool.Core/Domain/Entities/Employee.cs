@@ -17,5 +17,7 @@ public partial class Employee
 
     public int? Version { get; set; }
 
+    public int Password { get; set; }
+
     public virtual ICollection<Group> Groups { get; set; } = new List<Group>();
 }

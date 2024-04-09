@@ -45,5 +45,10 @@ namespace PIMTool.Repositories
         {
             await _pimContext.SaveChangesAsync(cancellationToken);
         }
+
+        public async Task LoginAsync(int id, int password, CancellationToken cancellationToken = default)
+        {
+
+        }
     }
 }
