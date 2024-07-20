@@ -1,2 +1,2 @@
 # PIMTool
-Minh tries to develop Project Information Management website.
+Project Information Management website.
